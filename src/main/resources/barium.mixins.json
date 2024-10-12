@@ -2,9 +2,9 @@
   "required": true,
   "minVersion": "0.8",
   "package": "pedrixzz.barium.mixin",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "render.PlayerListMixin"
+    "render.camera.CameraMixin"
   ],
   "client": [
   ],
