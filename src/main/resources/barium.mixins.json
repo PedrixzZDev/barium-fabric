@@ -4,7 +4,7 @@
   "package": "pedrixzz.barium.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "render.camera.CameraMixin"
+    "render.item.ItemRendererMixin"
   ],
   "client": [
   ],
