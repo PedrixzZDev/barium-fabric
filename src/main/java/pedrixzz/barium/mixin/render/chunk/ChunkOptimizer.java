@@ -23,13 +23,13 @@ public abstract class ChunkOptimizer {
 
   private final Map<BlockPos, BlockState> blockStateCache = new HashMap<>();
 
-  @Inject(at = @At("HEAD"), method = "getBlockState(II)Lnet/minecraft/block/BlockState;")
-  private void optimizeGetBlockState(int x, int z, CallbackInfo ci) {
-    BlockPos pos = new BlockPos(x, 0, z);
-    if (blockStateCache.containsKey(pos)) {
-      ci.setReturnValue(blockStateCache.get(pos));
-    }
+ @Inject(at = @At("HEAD"), method = "getBlockState(II)Lnet/minecraft/block/BlockState;")
+private void optimizeGetBlockState(int x, int z, CallbackInfoReturnable<BlockState> ci) {
+  BlockPos pos = new BlockPos(x, 0, z);
+  if (blockStateCache.containsKey(pos)) {
+    ci.setReturnValue(blockStateCache.get(pos));
   }
+}
 
   @Inject(at = @At("HEAD"), method = "setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;)V")
   private void updateBlockStateCache(BlockPos pos, BlockState state, CallbackInfo ci) {
